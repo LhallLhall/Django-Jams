@@ -10,18 +10,18 @@ class AlbumWithSongsSerializer(serializers.ModelSerializer):
     album_songs = NameListingField(many=True, read_only=True)
     class Meta:
         model = Album
-        fields = ['title', 'album_songs']
+        fields = ['id','title', 'album_songs']
         # 'songs'
 class ArtistWithSongsSerializer(serializers.ModelSerializer):
     artists_songs = NameListingField(many=True, read_only=True)
     class Meta:
         model = Artist
-        fields = ['name', 'artists_songs']
+        fields = ['id','name', 'artists_songs']
 class PlaylistWithSongsSerializer(serializers.ModelSerializer):
     playlists_songs = NameListingField(many=True, read_only=True)
     class Meta:
         model = Playlist
-        fields = ['title', 'playlists_songs']
+        fields = ['id','title', 'playlists_songs']
 
 class ArtistSerializer(serializers.ModelSerializer):
     class Meta:
