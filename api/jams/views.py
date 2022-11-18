@@ -36,13 +36,10 @@ class SongViewSet(ModelViewSet):
         kwargs['partial'] = True
         return super().update(request, *args, **kwargs)
     
-    def create(self, request, *args, **kwargs):
-        kwargs['partial'] = True
-        return super().create(request, *args, **kwargs)
-    
-    # def destroy(request, *args, **kwargs):
+    # def create(self, request, *args, **kwargs):
     #     kwargs['partial'] = True
-    #     return super().destroy(request, *args, **kwargs)
+    #     return super().create(request, *args, **kwargs)
+    
 
 class GenreAPIView(APIView):
     def get_object(self, pk):
