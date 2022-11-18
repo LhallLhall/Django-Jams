@@ -15,8 +15,8 @@ router.register(r'playlist_songs', PlaylistWithSongsViewSet)
 
 
 urlpatterns = [
-    path('api/', SongAPIView.as_view()),
-    path('api/genre/', GenreAPIView.as_view()),
-    path('api/genre/<str:pk>/', GenreAPIView.as_view()),
+    # path('api/', SongAPIView.as_view()),
+    # path('api/genre/', GenreAPIView.as_view()),
+    # path('api/genre/<str:pk>/', GenreAPIView.as_view()),
     path('', include(router.urls))
 ]
