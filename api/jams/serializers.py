@@ -3,21 +3,33 @@ from .models import *
 from .fields import NameListingField, GenreField, ArtistField, PlaylistField, AlbumField
 
 class AlbumSerializer(serializers.ModelSerializer):
-    # songs = NameListingField(many=True, read_only=True)
     class Meta:
         model = Album
         fields = '__all__'
+class AlbumWithSongsSerializer(serializers.ModelSerializer):
+    album_songs = NameListingField(many=True, read_only=True)
+    class Meta:
+        model = Album
+        fields = ['title', 'album_songs']
         # 'songs'
+class ArtistWithSongsSerializer(serializers.ModelSerializer):
+    artists_songs = NameListingField(many=True, read_only=True)
+    class Meta:
+        model = Artist
+        fields = ['name', 'artists_songs']
+class PlaylistWithSongsSerializer(serializers.ModelSerializer):
+    playlists_songs = NameListingField(many=True, read_only=True)
+    class Meta:
+        model = Playlist
+        fields = ['title', 'playlists_songs']
 
 class ArtistSerializer(serializers.ModelSerializer):
-    # artists_songs = NameListingField(many=True, read_only=True)
     class Meta:
         model = Artist
         fields = '__all__'
         # 'artists_songs'
 
 class PlaylistSerializer(serializers.ModelSerializer):
-    # playlists_songs = NameListingField(many=True, read_only=True)
     class Meta:
         model = Playlist
         fields = '__all__'
@@ -37,7 +49,6 @@ class SongSerializer(serializers.ModelSerializer):
     playlist = PlaylistField(many=True, queryset=Playlist.objects.all())
     genre = GenreField(queryset=Genre.objects.all())
     artist = ArtistField(many=True, queryset=Artist.objects.all())
-
     class Meta:
         model = Song
         fields = (

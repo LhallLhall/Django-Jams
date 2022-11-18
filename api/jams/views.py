@@ -28,17 +28,22 @@ class ArtistViewSet(ModelViewSet):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
     http_method_names = ['get', 'post', 'put', 'delete']
+class ArtistWithSongsViewSet(ModelViewSet):
+    queryset = Artist.objects.all()
+    serializer_class = ArtistWithSongsSerializer
+    http_method_names = ['get', 'post', 'put', 'delete']
+class AlbumWithSongsViewSet(ModelViewSet):
+    queryset = Album.objects.all()
+    serializer_class = AlbumWithSongsSerializer
+    http_method_names = ['get', 'post', 'put', 'delete']
+
+class PlaylistWithSongsViewSet(ModelViewSet):
+    queryset = Playlist.objects.all()
+    serializer_class = PlaylistWithSongsSerializer
+    http_method_names = ['get', 'post', 'put', 'delete']
 class SongViewSet(ModelViewSet):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
-    # http_method_names = ['get', 'post', 'put', 'delete']
-    def update(self, request, *args, **kwargs):
-        kwargs['partial'] = True
-        return super().update(request, *args, **kwargs)
-    
-    # def create(self, request, *args, **kwargs):
-    #     kwargs['partial'] = True
-    #     return super().create(request, *args, **kwargs)
     
 
 class GenreAPIView(APIView):
