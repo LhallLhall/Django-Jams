@@ -12,21 +12,21 @@ class Song(models.Model):
         return self.title
 
 class Album(models.Model):
-    album_title = models.CharField(max_length=200, null=False)
+    title = models.CharField(max_length=200, null=False)
     def __str__(self):
-        return self.album_title
+        return self.title
 
 class Genre(models.Model):
-    genre_title = models.CharField(max_length=200, null=False)
+    title = models.CharField(max_length=200, null=False)
     def __str__(self):
-        return self.genre_title
+        return self.title
 
 class Playlist(models.Model):
-    playlist_title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     def __str__(self):
-        return self.playlist_title
+        return self.title
 
 class Artist(models.Model):
-    artist_name = models.CharField(max_length=200, null=False)
+    name = models.CharField(max_length=200, null=False)
     def __str__(self):
-        return self.artist_name
+        return self.name
